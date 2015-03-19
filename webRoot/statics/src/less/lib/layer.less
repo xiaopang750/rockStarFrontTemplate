@@ -1,0 +1,400 @@
+/**
+ *description:网站布局框架
+ *author:fanwei
+ *date:2014/11/04
+ */
+
+@import "../config/config.less";
+@import "../config/func.less"; 
+
+html,body {
+	min-width: @base-min-width;
+	height: 100%;
+}
+
+
+//header
+.header {
+
+	height: 48px;
+	background: #fff;
+	font-size: 14px;
+	box-shadow: 0 -1px 8px 1px #bbb;
+
+	& .main {
+		width: 1000px;
+		margin: 0 auto;
+	}
+
+	& .block-item {
+		display: inline-block;
+		border-left: 1px solid #eee;
+		height: 48px;
+		vertical-align: middle;
+		position: relative;
+		color:#555;
+		cursor: pointer;
+        float: left;
+
+        &.info {
+            cursor: default;
+
+            &:hover {
+                background: inherit;
+            }
+        }
+
+		&:hover {
+			background:#f8f8f8;
+		};
+
+		& .item-title {
+			display: block;
+			padding: 0 20px;
+			text-align: center;
+			height: 48px;
+			line-height: 48px;
+		}
+
+		& .drop-menu {
+			position: absolute;
+			right: -1px;
+			top: 48px;
+			z-index: 10;
+			padding: 4px 0;
+			background: #fff;
+			border: 1px solid #ddd;
+			min-width: 160px;
+			box-shadow: 0 1px 2px 1px #e7e7e7;
+			display: none;
+
+			& .list-item {
+				display: block;
+				color: #333;
+				padding: 8px 15px;
+				font-size: 12px;
+
+				&:hover {
+					text-decoration:none;
+					background: #eee;
+				}
+
+				& .fa {
+					margin-right: 10px;
+					width: 20px;
+					text-align: center;
+				}
+			}
+		} 
+	}
+}
+
+//main
+.main-content {
+
+	width: 100%;
+	min-height: 100%;
+	overflow: hidden;
+
+	& .left-bar {
+		width: 109px;
+		padding-bottom: 20000px;
+		margin-bottom: -20000px;
+		float: left;
+		margin-right:-180px;
+		border-right:1px solid @border-color;
+		background: #2b2b38;
+		
+		& ul.sub {
+			
+			font-size: 14px;
+
+			& li {
+				line-height: 2em;
+				padding-left:20px;
+
+				&.active {
+					background: #57b382;
+					color:#fff;
+
+					& a {
+						color:#fff;
+					}
+
+					&:hover {
+						background:#4ba575;
+					}
+				}
+
+				& a {
+					display: block;
+					color:#c0c1c4;
+
+					& span {
+						margin-right:17px;
+						position: relative;
+						top: -3px;
+					}
+
+					&:hover {
+						color:#fff;
+						text-decoration:none;
+					}
+				}
+			}
+			
+		}
+
+		& ul.main {
+			
+			margin-top:59px;
+
+			& li.list-main {
+				
+				& .sub {
+					display: none;
+				}
+
+				&.down {
+					
+					& .fa-chevron-up {
+						display: inline-block@i;
+					}
+
+					& .fa-chevron-down {
+						display: none;
+					}
+
+					& .sub {
+						display: block;
+					}
+
+				}
+
+				& .icon {
+					font-size: 9px;
+					position: absolute;
+					right:5px;
+					top:16px;
+					width: auto@i;
+
+					&.fa-chevron-up {
+						display: none;
+					}
+				}
+
+				margin-bottom: 3px;
+				font-size: 16px;
+				
+				& a.first-index {
+					width: 100%;
+					height: 44px;
+					display: block;
+					color:#c0c1c4;
+					line-height: 44px;
+
+
+					&:hover {
+						color:#fff;
+						text-decoration: none;
+					}
+
+					& .fa {
+						width: 25px;
+					}
+				}
+
+				&.active a.first-index {
+					background: #57b382;
+					color:#fff;
+
+					&:hover {
+						background:#4ba575;
+					}
+				}
+
+			}
+
+		}
+
+	}
+	
+	& .right-bar {
+		width: 143px;
+		float: right;
+		margin-left:-280px;
+		border-left:1px solid @border-color;
+		border-top:1px solid @border-color;
+		padding-bottom: 20000px;
+		margin-bottom: -20000px;
+		background: #f9f9f9;
+
+		& .msg-bar {
+
+			font-size: 14px;
+
+			& ul {
+				width: 100%;
+				border-bottom: 1px solid @border-color;
+				height: 45px;
+				line-height: 45px;
+
+				& li {
+					font-size: 14px;
+					float: left;
+					width: 92px;
+					border-right: 1px solid @border-color;
+					text-align: center;
+					height: 45px;
+					
+					&.br-none {
+						border-right: none;
+					}
+				}
+			}
+
+		}
+
+		& .msg-content {
+		
+			& ul {
+				
+				& li.group {
+					width: 100%;
+					margin:15px;
+					font-size: 14px;
+
+					&.active {
+
+						& .fa-caret-down {
+							display: inline-block;
+						}
+
+						& .fa-caret-right {
+							display: none;
+						}
+
+						& .user-wrap {
+							display: block;
+						}
+					}
+					
+					& .fa-caret-down {
+						display: none;
+					}
+
+					& .user-wrap {
+						display: none;
+					}
+
+					& .user-wrap {
+						margin: 10px 0 0 20px;
+
+						& li {
+							margin-bottom: 10px;
+						}
+					}
+				}
+
+			}
+
+		}
+	}
+
+	.center-bar {
+		width: auto;
+		min-width:543px;
+		margin:0 144px 0 110px;
+		padding-bottom: 20px;
+
+		& .bar-title {
+			font-size: 16px;
+			margin-bottom: 20px;
+			height: 46px;
+			border-bottom: 1px solid @border-color;
+
+			& .ba-intro {
+				float: left;
+				line-height: 46px;
+				margin-left: 20px;
+			}
+		}
+
+		& .main-content {
+			width: 96%;
+			margin:10px auto 0 auto;
+		}
+	}
+}
+
+//nav
+
+
+
+//footer
+
+
+//密码修改弹框
+.out-box {
+	padding:10px;
+	background: #fff;
+	border:1px solid #ccc;
+	box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+	border-radius: 5px;
+}
+
+.modifyPass-box {
+	width: 300px;
+	height: 200px;
+}
+
+//确认删除框
+.confirmbox {
+	width: 200px;
+	height: 100px;
+}
+
+//back-btn
+.back-btn,
+.bar-right-btn {
+	margin:8px 20px 0 0;
+	float: right;
+}
+
+//fenye
+.fenye {
+	display: none;
+	& .btn {
+		margin:0 2px;
+	}
+}
+
+//上传进度
+.progress-wrap {
+	width: 300px;
+	height: 18px;
+	line-height: 20px;
+	border: 1px solid #1483d8;
+	color: #6dbfff;
+	text-align: center;
+	position: relative;
+	display: inline-block;
+	background: #fff;
+
+	& .percentage {
+		width: 0;
+		height: 100%;
+		left: 0;
+		top: 0;
+		background: #1483d8;
+		position: absolute;
+	}
+
+	& .text {
+		position: relative;
+		z-index: 10;
+	}
+}
+
+
+ 
